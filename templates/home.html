@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'model_form_upload' %}">Загрузить файл</a>
+
+  <p>Загруженные файлы:</p>
+  <ul>
+    {% for obj in documents %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+        <small>(Загружено в: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
